@@ -1,0 +1,28 @@
+name: Build and deploy static website
+on:
+  push:
+    branches:
+    - main
+jobs:
+  deploy_website:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout from SCM
+      uses: actions/checkout@v2
+    - name: Deploy Static Page
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        allow_empty_commit: true
+        cname: schemas.spaceraccoons.com
+        enable_jekyll: false
+        exclude_assets: 'AUTHORS.md,CHANGELOG.md,CODE_OF_CONDUCT.md,LICENSE,README.md,SECURITY.md,.editorconfig,.gitattributes,.github/,.gitignore,.mailmap'
+        disable_nojekyll: false
+        force_orphan: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        keep_files: false
+        publish_branch: gh-pages
+        publish_dir: ./
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        user_name: 'github-actions[bot]'

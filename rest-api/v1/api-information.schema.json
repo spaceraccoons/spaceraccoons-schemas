@@ -1,0 +1,31 @@
+{
+  "$id": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.shema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "",
+  "title": "API Information",
+  "description": "Basic information about the API and the endpoint serving it.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "default": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.shema.json#"
+    },
+    "version": {
+      "$comment": "The format of this string is `${major}.${minor}.${patch}`.",
+      "title": "API version",
+      "description": "Full semantic version of the API.",
+      "type": "string",
+      "pattern": "^(1)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "examples": [
+        "1.0.0",
+        "1.0.1",
+        "1.1.0",
+        "1.1.1",
+        "1.2.12",
+        "1.12.0",
+        "1.13.14"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
