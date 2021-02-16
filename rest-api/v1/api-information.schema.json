@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.shema.json",
+  "$id": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$comment": "",
   "title": "API Information",
@@ -8,7 +8,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "default": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.shema.json#"
+      "default": "https://schemas.spaceraccoons.com/rest-api/v1/api-information.schema.json#"
     },
     "version": {
       "$comment": "The format of this string is `${major}.${minor}.${patch}`.",

@@ -6,10 +6,10 @@ on:
 jobs:
   deploy_website:
     name: Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout from SCM
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Deploy Static Page
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
