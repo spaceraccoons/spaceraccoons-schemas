@@ -1,0 +1,57 @@
+{
+  "$id": "https://schemas.spaceraccoons.com/assets/v1/font-monospace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$comment": "",
+  "title": "Fixed-width font definition",
+  "description": "Definition of fixed-width / mono space fonts.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "default": "https://schemas.spaceraccoons.com/assets/v1/font-monospace.schema.json#"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "examples": [
+        "Aerial",
+        "My Shiny Font"
+      ]
+    },
+    "imageUrl": {
+      "$comment": "URL to the image that holds the data of this font. Usually in PNG format.",
+      "title": "Image URL",
+      "description": "Absolute or relative URL to the image that contains this font's glyph data.",
+      "type": "string",
+      "examples": [
+        "./font-mono1.png",
+        "https://fonts.example.com/monospace.png"
+      ]
+    },
+    "characterHeight": {
+      "title": "Character height",
+      "description": "Height of the characters of this font in pixels.",
+      "type": "integer",
+      "minimum": 1,
+      "examples": [
+        8,
+        12,
+        13,
+        24
+      ]
+    },
+    "characterWidth": {
+      "title": "Character width",
+      "description": "Width of the characters of this font in pixels.",
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "name",
+    "imageUrl",
+    "characterHeight",
+    "characterWidth"
+  ],
+  "additionalProperties": false
+}
