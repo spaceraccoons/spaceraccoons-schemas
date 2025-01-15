@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - name: Checkout from SCM
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Deploy Static Page
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
