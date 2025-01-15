@@ -1,0 +1,76 @@
+openapi: '3.0.3'
+
+info:
+  title: Space Raccoons Client API
+  version: '1.0.0'
+  description: |
+    Public Interface for Space Raccoons Clients to communicate
+    with the Space Raccoons server(s).
+  contact:
+    url: https://www.spaceraccoons.com/
+
+tags:
+  - name: spaceraccoons
+  - name: v1
+  - name: latest-api
+
+externalDocs:
+  url: https://www.spaceraccoons.com/
+  description: Project Website
+
+servers:
+  - url: https://api.spaceraccoons.com/rest/v1
+    description: Live Server Cluster
+  - url: '{protocol}://{hostname}:{port}{basePath}'
+    description: Custom URL
+    variables:
+      protocol:
+        default: http
+        description: Protocol
+        enum:
+          - http
+          - https
+      hostname:
+        default: localhost
+        description: Hostname
+      port:
+        default: '8000'
+        description: Port
+      basePath:
+        default: '/'
+        description: Base path
+
+components:
+  securitySchemes:
+    oidc:
+      type: openIdConnect
+      description: Space Raccoons Open ID connect provider
+      openIdConnectUrl: https://id.spaceraccoons.com/
+    apiKey:
+      type: apiKey
+      description: API Key
+      in: header
+      name: x-spaceraccoons-api-key
+
+paths:
+  '/':
+    summary: API Inormation
+    description: Retrieve basic API information.
+    get:
+      operationId: getApiInformation
+      tags:
+        - root
+        - apiInformation
+      security:
+        - {}
+      responses:
+        '200':
+          description: |
+             Basic information about the API itself and the endpoint serving it.
+             Don't use this operation to perform a basic "ping" as it might be
+             rate-limited.
+          content:
+            'application/json':
+              schema:
+                $ref: './api-information.schema.json#'
+
